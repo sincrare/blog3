@@ -6,7 +6,7 @@
   = @article.title
 %p
   %b 本文:
-  = @article.content
+  = simple_format @article.content
 
 = link_to '編集', edit_admin_article_path(@article)
 \|
