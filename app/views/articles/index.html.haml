@@ -1,25 +1,8 @@
-%h1 Listing articles
-
-%table
-  %thead
-    %tr
-      %th Entry at
-      %th Title
-      %th Content
-      %th
-      %th
-      %th
-
-  %tbody
-    - @articles.each do |article|
-      %tr
-        %td= article.entry_at
-        %td= article.title
-        %td= article.content
-        %td= link_to 'Show', article
-        %td= link_to 'Edit', edit_article_path(article)
-        %td= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }
-
-%br
-
-= link_to 'New Article', new_article_path
+- @articles.each do |article|
+  .article
+    .entry_at
+      = fa_icon('calender-o')
+      = l article.entry_at
+    = article.title
+    = article.content.truncate(100, omission: '…')
+    = link_to '続きを読む', article
