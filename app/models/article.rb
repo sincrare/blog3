@@ -3,4 +3,5 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :article_images
 
   scope :order_by_descending, -> { order(entry_at: :desc) }
+  scope :published, -> { where(published: true) }
 end
