@@ -1,0 +1,13 @@
+%p
+  %b 投稿日:
+  = l @article.entry_at
+%p
+  %b タイトル:
+  = @article.title
+%p
+  %b 本文:
+  = @article.content
+
+= link_to 'Edit', edit_admin_article_path(@article)
+\|
+= link_to 'Back', admin_articles_path

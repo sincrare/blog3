@@ -4,5 +4,5 @@
       = fa_icon('calender-o')
       = l article.entry_at
     = article.title
-    = article.content.truncate(100, omission: '…')
+    = simple_format article.content.truncate(100, omission: '…')
     = link_to '続きを読む', article
