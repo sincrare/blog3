@@ -1,7 +1,10 @@
-.article
-  .entry_at
-    = fa_icon('calender-o')
-    = l @article.entry_at
-  = @article.title
-  = simple_format @article.content
+.col-md-9
+  .article
+    .entry_at
+      = fa_icon('calender-o')
+      = l @article.entry_at
+    = @article.title
+    = simple_format @article.content
 
+.col-md-3
+  = render 'sidebar'
