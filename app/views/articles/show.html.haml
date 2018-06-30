@@ -3,7 +3,7 @@
     .entry_at
       = fa_icon('calender-o')
       = l @article.entry_at
-    = @article.title
+    %h2= @article.title
     = simple_format @article.content
 
 .col-md-3
