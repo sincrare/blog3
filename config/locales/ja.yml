@@ -210,3 +210,7 @@ ja:
         password_confirmation: パスワード確認
         email: メールアドレス
         remember_me: 次回から自動でログインする
+      article:
+        entry_at: 投稿日
+        title: タイトル
+        content: 本文

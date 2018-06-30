@@ -24,7 +24,7 @@ class Admin::ArticlesController < Admin::ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to [:admin, @article], notice: 'Article was successfully created.'
+      redirect_to [:admin, @article], notice: '記事を投稿しました。'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   # PATCH/PUT /articles/1
   def update
     if @article.update(article_params)
-      redirect_to [:admin, @article], notice: 'Article was successfully updated.'
+      redirect_to [:admin, @article], notice: '記事を更新しました。'
     else
       render :edit
     end
@@ -42,7 +42,7 @@ class Admin::ArticlesController < Admin::ApplicationController
   # DELETE /articles/1
   def destroy
     @article.destroy
-    redirect_to admin_articles_url, notice: 'Article was successfully destroyed.'
+    redirect_to admin_articles_url, notice: '記事を削除しました。'
   end
 
   private
@@ -53,6 +53,6 @@ class Admin::ArticlesController < Admin::ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def article_params
-      params.fetch(:article, {})
+      params.require(:article).permit(:entry_at, :title, :content)
     end
 end
