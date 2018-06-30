@@ -10,9 +10,11 @@ class Admin::ArticlesController < Admin::ApplicationController
 
   def new
     @article = Article.new
+    @article.default_images_build
   end
 
   def edit
+    @article.default_images_build
   end
 
   def create
@@ -44,6 +46,6 @@ class Admin::ArticlesController < Admin::ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:entry_at, :title, :content, :published)
+      params.require(:article).permit(:entry_at, :title, :content, :published, { article_images_attributes: [:id, :image] })
     end
 end

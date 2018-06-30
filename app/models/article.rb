@@ -4,4 +4,9 @@ class Article < ApplicationRecord
 
   scope :order_by_descending, -> { order(entry_at: :desc) }
   scope :published, -> { where(published: true) }
+
+  def default_images_build
+    article_image_count = 5
+    (article_image_count - article_images.count).times { article_images.build }
+  end
 end
