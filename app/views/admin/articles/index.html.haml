@@ -1,0 +1,27 @@
+%h1 記事一覧
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th 投稿日
+      %th タイトル
+      %th 本文
+      %th 公開有無
+      %th
+      %th
+      %th
+
+  %tbody
+    - @articles.each do |article|
+      %tr
+        %td= l article.entry_at
+        %td= article.title
+        %td= article.content.truncate(20, omission: '…')
+        %td= article.published ? "公開" : "非公開"
+        %td= link_to '詳細', admin_article_path(article)
+        %td= link_to '編集', edit_admin_article_path(article)
+        %td= link_to '削除', admin_article_path(article), method: :delete, data: { confirm: '削除してもよろしいですか?' }
+
+%br
+
+= link_to '新規投稿', new_admin_article_path
